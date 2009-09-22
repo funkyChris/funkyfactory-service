@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Author Christophe Bouthier (christophe.bouthier@loria.fr) Date 29 July 2009
+	-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>funkyfactory-service-master</artifactId>
+		<groupId>org.qualipso</groupId>
+		<version>0.0.3</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.qualipso</groupId>
+	<artifactId>funkyfactory-service-clock-ftests</artifactId>
+	<name>funkyfactory-service-clock-ftests</name>
+	<packaging>jar</packaging>
+	<version>0.0.3</version>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.4.2</version>
+				<configuration>
+					<argLine>-Djava.endorsed.dirs=${jboss.home}/lib/endorsed</argLine>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.jboss.jbossas</groupId>
+			<artifactId>jboss-as-client</artifactId>
+			<version>5.0.1.GA</version>
+			<type>pom</type>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.qualipso</groupId>
+			<artifactId>factory-core</artifactId>
+			<version>0.3.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.qualipso</groupId>
+			<artifactId>funkyfactory-service-clock</artifactId>
+			<version>0.0.3</version>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

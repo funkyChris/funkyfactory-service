@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		Author Christophe Bouthier (christophe.bouthier@loria.fr) Date 18 August 2009
+	-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>funkyfactory-service-master</artifactId>
+		<groupId>org.qualipso</groupId>
+		<version>0.0.3</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.qualipso</groupId>
+	<artifactId>funkyfactory-service</artifactId>
+	<name>funkyfactory-service</name>
+	<packaging>ear</packaging>
+	<version>0.0.3</version>
+	<build>
+		<defaultGoal>package</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<displayName>Qualipso Factory - Services</displayName>
+					<description>Qualipso Factory - Services</description>
+					<generateApplicationXml>true</generateApplicationXml>
+					<includeLibInApplicationXml>true</includeLibInApplicationXml>
+					<version>5</version>
+					<workDirectory>${project.build.directory}/${project.build.finalName}</workDirectory>
+					<modules>
+						<ejbModule>
+							<groupId>org.qualipso</groupId>
+							<artifactId>funkyfactory-service-clock</artifactId>
+						</ejbModule>
+					</modules>
+					<jboss>
+						<version>5</version>
+						<unauthenticated-principal>guest</unauthenticated-principal>
+					</jboss>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jboss-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<configuration>
+					<jbossHome>${jboss.home}</jbossHome>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.qualipso</groupId>
+			<artifactId>funkyfactory-service-clock</artifactId>
+			<version>0.0.3</version>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.qualipso</groupId>
+			<artifactId>factory-core</artifactId>
+			<version>0.3.1</version>
+		</dependency>
+	</dependencies>
+</project>
